@@ -37,6 +37,15 @@ Book.prototype.createDiv = function() {
     isRead.textContent = this.isRead ? "Read" : "Not Read";
     newBook.appendChild(isRead);
 
+    const updateButton = document.createElement("button");
+    updateButton.textContent = "Update";
+    updateButton.setAttribute("id", "updateStatus");
+    updateButton.addEventListener("click", () => {
+        this.isRead = !this.isRead;
+        updateLibrary();
+    });
+    newBook.appendChild(updateButton);
+
     return newBook;
 }
 
