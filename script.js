@@ -3,15 +3,16 @@ function Book(title, author, pageCount, isRead) {
     this.author = author;
     this.pageCount = pageCount;
     this.isRead = isRead;
-
-    this.info = () => {
-        if (isRead) {
-            return `${this.title} by ${this.author}, ${this.pageCount} pages, read`
-        }
-
-        return `${this.title} by ${this.author}, ${this.pageCount} pages, not read`
-    }
 }
+
+Book.prototype.info = function() {
+    if (this.isRead) {
+        return `${this.title} by ${this.author}, ${this.pageCount} pages, read`
+    }
+
+    return `${this.title} by ${this.author}, ${this.pageCount} pages, not read`
+}
+
 
 function addBookToLibrary(book) {
     library.push(book);
