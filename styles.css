@@ -1,0 +1,61 @@
+:root {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+body {
+    box-sizing: border-box;
+    background-color: #d6d1b1;
+    height: 100vh;
+    margin: 0;
+    padding: 24px;
+
+    display: flex;
+    align-items: stretch;
+    gap: 24px;
+}
+
+#form {
+    background-color: #f0b67f;
+    color: #000814;
+    box-sizing: border-box;
+    padding-top: 100px;
+    border-radius: 10px;
+    flex: 1;
+
+    display: flex;
+    justify-content: center;
+}
+
+#addBook {
+    background-color: #EEF5DB;
+    height: fit-content;
+    padding: 32px 32px 80px;
+    border-radius: 10px;
+
+    display: grid;
+    grid-template-columns: max-content max-content;
+    grid-template-rows: repeat(auto-fit, 20px);
+    gap: 20px 10px;
+}
+
+#addBook label {
+    text-align: right;
+}
+
+#addBook label::after {
+    content: ":";
+}
+
+#addButton {
+    width: 100px;
+    height: 24px;
+    margin-top: 24px;
+    justify-self: right;
+    grid-column: 2;
+}
+
+#bookDisplay {
+    background-color: #f0b67f;
+    border-radius: 10px;
+    flex: 2;
+}
