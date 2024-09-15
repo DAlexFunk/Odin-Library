@@ -77,6 +77,7 @@ body {
 }
 
 .book {
+    position: relative;
     box-sizing: border-box;
     background-color: #FE5F55;
     border-radius: 6px;
@@ -89,6 +90,27 @@ body {
 
 #bookTitle {
     font-size: 32px;
+}
+
+button#delete {
+    background-color: #EEF5DB;
+    border: 2px solid #CCD3B9;
+
+    height: 25px;
+    width: 25px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    border-radius: 100%;
+}
+
+button#delete:hover {
+    background-color: #CCD3B9;
+}
+
+button#delete:active {
+    background-color: #AAB097;
+    border: 2px solid #AAB097 ;
 }
 
 p {

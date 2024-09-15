@@ -1,21 +1,24 @@
-function Book(title, author, pageCount, isRead) {
+function Book(title, author, pageCount, isRead, index) {
     this.title = title;
     this.author = author;
     this.pageCount = pageCount;
     this.isRead = isRead;
-}
-
-Book.prototype.info = function() {
-    if (this.isRead) {
-        return `${this.title} by ${this.author}, ${this.pageCount} pages, read`;
-    }
-
-    return `${this.title} by ${this.author}, ${this.pageCount} pages, not read`;
+    this.index = index;
 }
 
 Book.prototype.createDiv = function() {
     const newBook = document.createElement("div")
     newBook.setAttribute("class", "book");
+
+    const deleteButton = document.createElement("button");
+    deleteButton.setAttribute("id", "delete");
+    deleteButton.textContent = "X";
+    deleteButton.addEventListener("click", () => {
+        library.splice(this.index, 1);
+        newBook.remove();
+        library.forEach((book) => book.updateIndex());
+    });
+    newBook.appendChild(deleteButton);
 
     const title = document.createElement("p");
     title.setAttribute("id", "bookTitle");
@@ -37,6 +40,10 @@ Book.prototype.createDiv = function() {
     return newBook;
 }
 
+Book.prototype.updateIndex = function() {
+    this.index = library.indexOf(this);
+}
+
 
 function getInputs() {
     const inputs = [];
@@ -47,7 +54,7 @@ function getInputs() {
 }
 
 function addInputsToLibrary(inputs) {
-    nextBook = new Book(inputs[0], inputs[1], Number(inputs[2]), inputs[3]);
+    nextBook = new Book(inputs[0], inputs[1], Number(inputs[2]), inputs[3], library.length);
 
     library.push(nextBook);
 }
@@ -79,8 +86,4 @@ const readInput = document.querySelector("#isRead");
 
 const library = [];
 
-submitButton.addEventListener("click", () => {
-    actionOnPress();
-    // addInputsToLibrary();
-    // textInputs.forEach((input) => input.value = "");
-});
+submitButton.addEventListener("click", actionOnPress);
