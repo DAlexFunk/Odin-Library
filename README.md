@@ -5,6 +5,7 @@ The library project from The Odin Project
 The library project from The Odin Project JavaScript course. This page uses a JavaScript script to handle the library's inventory and actions.
 
 ## Use
+* The page can be accessed [here](https://dalexfunk.github.io/Odin-Library).
 * Fill out the info for the book in the form on the left and click Add Book.
 * The library then updates with the new book added.
 * Each entry has a delete button to remove the entry and an update button to change the read status.
