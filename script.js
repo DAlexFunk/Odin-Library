@@ -15,9 +15,9 @@ class Book {
         deleteButton.setAttribute("id", "delete");
         deleteButton.textContent = "X";
         deleteButton.addEventListener("click", () => {
-            library.splice(this.index, 1);
+            Library.contents.splice(this.index, 1);
             newBook.remove();
-            library.forEach((book) => book.updateIndex());
+            Library.contents.forEach((book) => book.updateIndex());
         });
         newBook.appendChild(deleteButton);
 
@@ -43,7 +43,7 @@ class Book {
         updateButton.setAttribute("id", "updateStatus");
         updateButton.addEventListener("click", () => {
             this.isRead = !this.isRead;
-            updateLibrary();
+            Library.updateLibrary();
         });
         newBook.appendChild(updateButton);
 
@@ -51,7 +51,28 @@ class Book {
     }
 
     updateIndex() {
-        this.index = library.indexOf(this);
+        this.index = Library.contents.indexOf(this);
+    }
+}
+
+const Library = {
+    contents: [],
+
+    addInputsToLibrary: function(inputs) {
+        nextBook = new Book(inputs[0], inputs[1], Number(inputs[2]), inputs[3], Library.contents.length);
+
+        Library.contents.push(nextBook);
+    },
+
+    updateLibrary: function() {
+        while (libraryArea.firstChild) {
+            libraryArea.removeChild(libraryArea.lastChild);
+        }
+    
+        Library.contents.forEach((book) => {
+            const bookDiv = book.createDiv();
+            libraryArea.appendChild(bookDiv);
+        })
     }
 }
 
@@ -64,27 +85,10 @@ function getInputs() {
     return inputs;
 }
 
-function addInputsToLibrary(inputs) {
-    nextBook = new Book(inputs[0], inputs[1], Number(inputs[2]), inputs[3], library.length);
-
-    library.push(nextBook);
-}
-
-function updateLibrary() {
-    while (libraryArea.firstChild) {
-        libraryArea.removeChild(libraryArea.lastChild);
-    }
-
-    library.forEach((book) => {
-        const bookDiv = book.createDiv();
-        libraryArea.appendChild(bookDiv);
-    })
-}
-
 function actionOnPress() {
     const inputs = getInputs();
-    addInputsToLibrary(inputs);
-    updateLibrary();
+    Library.addInputsToLibrary(inputs);
+    Library.updateLibrary();
 
     textInputs.forEach((input) => input.value = "");
 }
@@ -94,7 +98,5 @@ const libraryArea = document.querySelector("#bookDisplay");
 const submitButton = document.querySelector("#addButton");
 const textInputs = document.querySelectorAll("input")
 const readInput = document.querySelector("#isRead");
-
-const library = [];
 
 submitButton.addEventListener("click", actionOnPress);
