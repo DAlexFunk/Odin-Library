@@ -1,136 +1,139 @@
 :root {
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 body {
-    box-sizing: border-box;
-    background-color: #d6d1b1;
-    height: 100vh;
-    margin: 0;
-    padding: 24px;
+  box-sizing: border-box;
+  background-color: #d6d1b1;
+  height: 100vh;
+  margin: 0;
+  padding: 24px;
 
-    display: flex;
-    align-items: stretch;
-    gap: 24px;
+  display: flex;
+  align-items: stretch;
+  gap: 24px;
 }
 
 p {
-    margin: 0;
-    max-width: 200px;
-    max-height: 100px;
-    overflow: auto;
-    text-align: center;
+  margin: 0;
+  max-width: 200px;
+  max-height: 100px;
+  overflow: auto;
+  text-align: center;
 }
 
-#form {
-    background-color: #f0b67f;
-    color: #000814;
-    box-sizing: border-box;
-    padding-top: 15vh;
-    border-radius: 10px;
-    flex: 1;
+form {
+  background-color: #f0b67f;
+  color: #000814;
+  box-sizing: border-box;
+  padding-top: 15vh;
+  border-radius: 10px;
+  flex: 1;
 
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 #addBook {
-    background-color: #EEF5DB;
-    height: fit-content;
-    padding: 32px 32px 72px;
-    border-radius: 10px;
+  background-color: #eef5db;
+  height: fit-content;
+  padding: 32px 32px 72px;
+  border-radius: 10px;
 
-    display: grid;
-    grid-template-columns: max-content max-content;
-    grid-template-rows: repeat(auto-fit, 20px);
-    gap: 20px 10px;
+  display: grid;
+  grid-template-columns: max-content max-content;
+  grid-template-rows: repeat(auto-fit, 20px);
+  gap: 20px 10px;
 }
 
 #addBook label {
-    text-align: right;
+  text-align: right;
 }
 
 #addBook label::after {
-    content: ":";
+  content: ":";
 }
 
 #addButton {
-    width: 100px;
-    height: 24px;
-    margin-top: 24px;
-    justify-self: right;
-    grid-column: 2;
+  width: 100px;
+  height: 24px;
+  margin-top: 24px;
+  justify-self: right;
+  grid-column: 2;
 }
 
-
 #bookDisplay {
-    box-sizing: border-box;
-    background-color: #f0b67f;
-    border-radius: 10px;
-    padding: 16px;
-    flex: 2;
-    overflow: auto;
+  box-sizing: border-box;
+  background-color: #f0b67f;
+  border-radius: 10px;
+  padding: 16px;
+  flex: 2;
+  overflow: auto;
 
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 307px);
-    grid-template-rows: 196px;
-    grid-auto-rows: 196px;
-    gap: 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 307px);
+  grid-template-rows: 196px;
+  grid-auto-rows: 196px;
+  gap: 16px;
 }
 
 .book {
-    position: relative;
-    box-sizing: border-box;
-    background-color: #FE5F55;
-    border-radius: 6px;
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
+  position: relative;
+  box-sizing: border-box;
+  background-color: #fe5f55;
+  border-radius: 6px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 #bookTitle {
-    font-size: 32px;
+  font-size: 32px;
 }
 
 button,
 select,
 input {
-    font-family: inherit;
+  font-family: inherit;
+}
+
+input:invalid {
+    border: 2px solid red;
 }
 
 button#delete {
-    height: 25px;
-    width: 25px;
-    background-color: #EEF5DB;
-    border: 2px solid #CCD3B9;
+  height: 25px;
+  width: 25px;
+  background-color: #eef5db;
+  border: 2px solid #ccd3b9;
 
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    border-radius: 100%;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  border-radius: 100%;
 }
 
 button#updateStatus {
-    height: 25px;
-    width: 64px;
-    background-color: #EEF5DB;
-    border: 2px solid #CCD3B9;
-    border-radius: 6px;
-    
-    position: absolute;
-    bottom: 15px;
-    left: 15px;
+  height: 25px;
+  width: 64px;
+  background-color: #eef5db;
+  border: 2px solid #ccd3b9;
+  border-radius: 6px;
+
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
 }
 
 button#delete:hover,
 button#updateStatus:hover {
-    background-color: #CCD3B9;
+  background-color: #ccd3b9;
 }
 
 button#delete:active,
 button#updateStatus:active {
-    background-color: #AAB097;
-    border: 2px solid #AAB097 ;
+  background-color: #aab097;
+  border: 2px solid #aab097;
 }
